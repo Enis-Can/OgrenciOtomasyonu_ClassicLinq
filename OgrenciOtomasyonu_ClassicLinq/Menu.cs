@@ -42,6 +42,9 @@ namespace OgrenciOtomasyonu_ClassicLinq
                 case ConsoleKey.D7:
                     HighestScore("EN YÜKSEK NOT ORTALAMASI OLAN ÖĞRENCİ");
                     break;
+                case ConsoleKey.NumPad8:
+                case ConsoleKey.D8:
+                    break;
                     default:
                     ToMenu("Geçersiz seçim yaptınız.");
                     break;
@@ -93,6 +96,7 @@ namespace OgrenciOtomasyonu_ClassicLinq
                 Console.WriteLine();
                 if (key == ConsoleKey.NumPad1 || key == ConsoleKey.D1)
                 {
+                    Console.WriteLine();
                     var orderedByName = from s in students
                                         orderby s.TamAd
                                         select s;
@@ -101,6 +105,7 @@ namespace OgrenciOtomasyonu_ClassicLinq
                 }
                 else if(key == ConsoleKey.NumPad2 || key == ConsoleKey.D2)
                 {
+                    Console.WriteLine();
                     var orderedByScore = from s in students
                                          orderby s.Ortalama descending
                                          select s;
@@ -109,6 +114,7 @@ namespace OgrenciOtomasyonu_ClassicLinq
                 }
                 else if(key == ConsoleKey.NumPad3 || key == ConsoleKey.D3)
                 {
+                    Console.WriteLine();
                     var orderedByClass = from s in students
                                          orderby s.Sinif
                                          select s;
@@ -145,7 +151,7 @@ namespace OgrenciOtomasyonu_ClassicLinq
                 Lister.ListStudents(students);
                 int index = Getter.GetInt("Silinecek öğrencinin ID numarasını giriniz: ", 1, students.Count) - 1;
                 Student deletedStudent = students[index];
-                Console.Write("{0} adlı öğrenciyi silmek istediğinize emin misiniz?(e) ");
+                Console.Write("{0} adlı öğrenciyi silmek istediğinize emin misiniz?(e) ",deletedStudent.Ad);
                 if(Console.ReadKey().Key == ConsoleKey.E)
                 {
                     students.RemoveAt(index);

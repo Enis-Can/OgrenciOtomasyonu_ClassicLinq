@@ -34,5 +34,5 @@ do
     Menu.MenuOptions(key);
 }
 while (key!=ConsoleKey.NumPad8 && key!=ConsoleKey.D8);
-
+Console.WriteLine("Çıkış yapmak için bir tuşa basınız.");
 Console.ReadKey();
